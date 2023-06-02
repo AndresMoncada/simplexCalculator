@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon.ico">
+  <link rel="manifest" href="icon/site.webmanifest">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <title>Calculadora Prog. Lineal</title>
+</head>
+
+<body>
+  <div class="section">
+    <div class="container">
+      <div class="block">
+        <p class="title">CALCULADORA PROGRAMACIÓN LINEAL</p>
+        <p class="subtitle">Método Simplex</p>
+      </div>
+      <div class="block columns">
+        <div class="column is-three-fifths-desktop">
+          <div class="block">
+            <textarea id="problem" class="textarea is-focused is-info" rows="10"></textarea>
+          </div>
+          <div class="level is-mobile">
+            <div class="level-item">
+              <button id="solve" class="button is-dark">Calcular</button>
+            </div>
+            <div class="level-item">
+              <button id="reset" class="button is-dark" disabled>Reiniciar</button>
+            </div>
+            <div class="level-item hide">
+              <button id="history" class="button is-small js-modal-trigger" data-target="history-modal">Historial</button>
+            </div>
+          </div>
+          <div class="block" id="empty-msg"></div>
+        </div>
+        <div class="card column hide">
+          <div class="card-content is-size-7">
+            <div class="content">
+              <div class="level is-mobile">
+                <div class="level-left">
+                  <div class="level-item"><b>Use the following syntax:</b></div>
+                </div>
+                <div class="level-right">
+                  <div class="level-item">
+                    <button class="button is-light is-small">
+                      <label class="checkbox"><input type="checkbox" id="toggle-guide"> show details</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="guide">
+                <p><b>First part: {min/max} = {objective function}</b></p>
+                <div class="level is-mobile">
+                  <div class="level-item">Example:</div>
+                  <div class="level-item"><textarea name="eg1" rows="1" readonly
+                      class="has-background-light">max = 3x1 + 2x2</textarea></div>
+                </div>
+                <ul class="details hide">
+                  <li>Specify minimization or maximization using "min" or "max"</li>
+                  <li>Write the objective function expression</li>
+                  <li>Keep both of them in a single line, and separate min/max and the expression by "=" sign</li>
+                </ul>
+                <p><b>Second part: constraints</b></p>
+                <div class="level is-mobile">
+                  <div class="level-item">Example:</div>
+                  <div class="level-item"><textarea name="eg2" rows="3" readonly
+                      class="has-background-light"></textarea></div>
+                </div>
+                <ul class="details hide">
+                  <li>Write each constraint in a separate line</li>
+                  <li>No need to write non-negativity constraints</li>
+                  <li>No need to write "subject to" or similar phrases</li>
+                  <li><b>Avoid using the following variable names: <i>slck, srpls, artfcl</i> as they are used in
+                      algorithm for slack, surplus and artificial variables respectively</b></li>
+                </ul>
+                <p class="has-text-weight-bold">The input text box contains an example already</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div id="output"></div>
+    </div>
+  </div>
+  <div class="modal is-size-6" id="history-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Historial de Entrada</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>No ha ingresado ninguna entrada, por lo tanto no hay historial.</p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button">Cancelar</button>
+      </footer>
+    </div>
+  </div>
+  <script src="./calculate.js"></script>
+  <script src="./dom.js"></script>
+</body>
+
+</html>

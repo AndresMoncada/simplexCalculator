@@ -1,0 +1,74 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: black;
+    font-size: 1em;
+}
+
+#output table {
+    font-size: smaller;
+}
+
+#output .overflow-scroll {
+    overflow-x: auto;
+}
+
+#output .card {
+    margin-top: 40px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* for dark mode (later) */
+/* button:hover,
+.checkbox:hover {
+    color: white;
+} */
+
+textarea[name="eg2"],
+textarea[name="eg1"] {
+    border-width: 0;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 2px;
+}
+
+.hide {
+    display: none;
+}
+/* Estilos para los botones */
+.button {
+    margin: 5px; /* Espacio entre los botones */
+    padding: 10px 20px; /* Espacio interno de los botones */
+    border: none; /* Eliminar borde de los botones */
+    border-radius: 5px; /* Borde redondeado de los botones */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre los botones */
+  }
+  
+  /* Estilo para el botón "Calcular" */
+  .button.is-dark {
+    background-color: #3b3c85; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+  }
+  
+  /* Estilo para el botón "Reiniciar" */
+  .button.is-small[disabled] {
+    background-color: #f2f2f2; /* Color de fondo del botón deshabilitado */
+    color: #888888; /* Color del texto del botón deshabilitado */
+  }
+  
+  /* Estilo para el botón "Historial" */
+  .button.is-small {
+    background-color: #777070; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+  }
+  
+  /* Estilos para el contenedor de los botones */
+  .level {
+    display: flex; /* Mostrar los botones en una fila */
+    justify-content: center; /* Centrar los botones horizontalmente */
+    margin-bottom: 20px; /* Espacio inferior del contenedor de los botones */
+  }
